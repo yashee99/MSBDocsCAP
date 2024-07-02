@@ -32,7 +32,7 @@ async function getToken(req) {
     "SecretKey": "0dcb5cd8-b588-4b0f-b76d-e37814508853"
   };
   // 3. Get Request Config & Enrich
-  let sDestination = "Emudhra"
+  let sDestination = "MSB APP"
   let oDestination = await cloudSDK.getDestination(sDestination);
   let oRequestConfig = await cloudSDK.buildHttpRequest(oDestination);
 
@@ -89,7 +89,7 @@ async function sendSignedData(req, sToken) {
     ]
   };
   // 3. Get Request Config & Enrich
-  let sDestination = "Emudhra"
+  let sDestination = "MSB APP"
   let oDestination = await cloudSDK.getDestination(sDestination);
   let oRequestConfig = await cloudSDK.buildHttpRequest(oDestination);
 
@@ -115,7 +115,7 @@ async function sendSignedData(req, sToken) {
   let response = await axios.request(oRequestConfig)
     .catch(function (oError) {
       logger.error("There was an error when calling the API. Error was: " + oError.message);
-      req.reject(400, "Error while calling the EMudhra API" + oError.message);
+      req.reject(400, "Error while calling the MSB API" + oError.message);
       throw Error("There was an error when calling the API");
     });
 
@@ -149,7 +149,7 @@ async function embeddedSigning(req, sToken) {
     ]
   };
 
-  let sDestination = "Emudhra"
+  let sDestination = "MSB APP"
   let oDestination = await cloudSDK.getDestination(sDestination);
   let oRequestConfig = await cloudSDK.buildHttpRequest(oDestination);
 
@@ -171,7 +171,7 @@ async function embeddedSigning(req, sToken) {
   let response = await axios.request(oRequestConfig)
     .catch(function (oError) {
       logger.error("There was an error when calling the API. Error was: " + oError.message);
-      req.reject(400, "Error while calling the EMudhra API" + oError.message);
+      req.reject(400, "Error while calling the MSB API" + oError.message);
       throw Error("There was an error when calling the API");
     });
 
@@ -198,7 +198,7 @@ async function getDocStatus(oResult, sToken) {
     "ParentDocumentId": 0
   };
 
-  let sDestination = "Emudhra"
+  let sDestination = "MSB APP"
   let oDestination = await cloudSDK.getDestination(sDestination);
 
   let oRequestConfig = await cloudSDK.buildHttpRequest(oDestination);
@@ -221,7 +221,7 @@ async function getDocStatus(oResult, sToken) {
   let response = await axios.request(oRequestConfig)
     .catch(function (oError) {
       logger.error("There was an error when calling the API. Error was: " + oError.message);
-      // req.reject(400, "Error while calling the EMudhra API" + oError.message);
+      // req.reject(400, "Error while calling the MSB API" + oError.message);
       throw Error("There was an error when calling the API");
     });
 
@@ -250,7 +250,7 @@ async function getEmbeddedDocument(sReferenceNum, sToken) {
     "IsMerged": true
   }
 
-  let sDestination = "Emudhra"
+  let sDestination = "MSB APP"
   let oDestination = await cloudSDK.getDestination(sDestination);
 
   let oRequestConfig = await cloudSDK.buildHttpRequest(oDestination);
@@ -273,7 +273,7 @@ async function getEmbeddedDocument(sReferenceNum, sToken) {
   let response = await axios.request(oRequestConfig)
     .catch(function (oError) {
       logger.error("There was an error when calling the API. Error was: " + oError.message);
-      // req.reject(400, "Error while calling the EMudhra API" + oError.message);
+      // req.reject(400, "Error while calling the MSB API" + oError.message);
       throw Error("There was an error when calling the API");
     });
 
