@@ -1,0 +1,79 @@
+{
+  "name": "remotesigning",
+  "version": "1.0.1",
+  "description": "EMudhara Signer CAP Application",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/util": "^1.54.2",
+    "@sap-cloud-sdk/core": "^1.54.2",
+    "@sap/cds": "^6",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.8.11",
+    "@sap/hana-client": "^2.16.26",
+    "express": "^4",
+    "hdb": "^0.19.0",
+    "passport": "^0.6.0",
+    "@sap-cloud-sdk/http-client": "2.9.0"
+  },
+  "devDependencies": {
+    "@sap/hdi-deploy": "4.6.0",
+    "sqlite3": "^5.0.3"
+  },
+  "scripts": {
+    "start": "cds run",
+    "deploy": "mbt build && cf deploy mta_archives/remotesigning_1.0.0.mtar"
+  },
+  "engines": {
+    "node": "^16.15"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "es2020": true,
+      "node": true,
+      "jest": true,
+      "mocha": true
+    },
+    "globals": {
+      "SELECT": true,
+      "INSERT": true,
+      "UPDATE": true,
+      "DELETE": true,
+      "CREATE": true,
+      "DROP": true,
+      "CDL": true,
+      "CQL": true,
+      "CXL": true,
+      "cds": true
+    },
+    "rules": {
+      "no-console": "off",
+      "require-atomic-updates": "off"
+    }
+  },
+  "cds": {
+    "requires": {
+      "Emudhra": {
+        "kind": "odata",
+        "credentials": {
+          "destination": "Emudhra",
+          "path": "/api"
+        }
+      },
+      "S4Hana_Cloud": {
+        "kind": "odata",
+        "credentials": {
+          "destination": "S4Hana_Cloud",
+          "path": "/sap/opu/odata/sap"
+        }
+      },
+      "db": {
+        "kind": "hana"
+      }
+    },
+    "hana": {
+      "deploy-format": "hdbtable"
+    }
+  }
+}
