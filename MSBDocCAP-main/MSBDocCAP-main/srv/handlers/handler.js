@@ -53,7 +53,7 @@ async function getToken(req) {
   let response = await axios.request(oRequestConfig)
     .catch(function (oError) {
       logger.error("There was an error when calling the API. Error was: " + oError.message);
-      req.reject(400, "Error whiel calling the EMudhra API" + oError.message);
+      req.reject(400, "Error whiel calling the MSB API" + oError.message);
       throw Error("There was an error when calling the API");
     });
 
