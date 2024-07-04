@@ -1,7 +1,7 @@
 using { remoteSigning as remoteSigning } from '../db/data-model'; 
 using { API_BILLING_DOCUMENT as BillingService} from './external/API_BILLING_DOCUMENT.csn';
 
-service CatalogService @(path:'/EMudhra') { 
+service CatalogService @(path:'/MSB APP') { 
 
     entity RemoteSign as projection on remoteSigning.RemoteSign ; 
     entity EmbeddedSign as projection on remoteSigning.EmbeddedSign;
