@@ -193,7 +193,7 @@ module.exports = function () {
                 sQuery = sQuery.replace(sTopQuery, "");
             }
 
-            sQuery = sQuery.replace("/EMudhra", "");
+            sQuery = sQuery.replace("/MSB APP", "");
             if (!sQuery.split("$filter=")[1]) {
                 sQuery = sQuery.replace("?$filter=", "");
             }
